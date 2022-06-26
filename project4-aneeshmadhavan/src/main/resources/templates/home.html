@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .left {
+            width: 300px;
+            border: 10px solid black;
+            padding: 50px;
+            margin: 20px;
+        }
+
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Events</h1>
+
+<div class>
+    <div class = "left" th:each="event : ${events}">
+        <p th:text="'Name :  ' + ${event.name}"></p>
+        <p th:text="'Location :  ' + ${event.location}"></p>
+        <p th:text="'When :  ' + ${event.dateTime}"></p>
+    </div>
+</div>
+<div class = "right">
+    <form action = "slack" method = "get">
+        <input type ="submit" value = "Sign In">
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

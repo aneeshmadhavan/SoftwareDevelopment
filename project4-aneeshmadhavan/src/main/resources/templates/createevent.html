@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Event!</title>
+    <style>
+
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .left {
+            width: 400px;
+            border: 10px solid black;
+            padding: 50px;
+            margin: 20px;
+            font-size: 10px;
+        }
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .alert2 {
+            padding: 20px;
+            width: 300px;
+            background-color: green;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+    </style>
+</head>
+</head>
+<body>
+
+<div class = "left">
+    <h1 th:text="'Create Event!'"></h1>
+
+    <form  method = "post">
+        <div>
+            <p>Enter Name</p>
+            <input type="string" name="name" required/>
+        </div>
+        <br>
+        <div>
+            <p>Enter Description</p>
+            <input type="string" name="description" required/>
+        </div>
+        <br>
+        <div>
+            <label for="location">Choose Location:</label>
+
+            <select name="location" id="location">
+                <option value="San Francisco">San Francisco</option>
+                <option value="New York City">New York City</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Miami">Miami</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="category">Choose Category:</label>
+
+            <select name="category" id="category">
+                <option value="Sports">Sports</option>
+                <option value="Shows">Shows</option>
+                <option value="Music">Music</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <p>Enter Ticket Price</p>
+            <input type="number" name="price" min="0" max="500" required/>
+        </div>
+        <br>
+        <div>
+            <p>Enter Capacity</p>
+            <input type="number" name="capacity" min="1" max="10000" required/>
+        </div>
+        <br>
+        <div>
+            <label for="datetime">When:</label>
+
+            <input type="datetime-local" id="datetime"
+                   name="datetime">
+        </div>
+        <br>
+        <div>
+            <input type ="submit" value = "Create">
+        </div>
+    </form>
+</div>
+<div class = "right">
+    <form action = "user" method = "get">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+<div class="alert2" th:if="${successMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${successMessage}"></p></strong>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions!</title>
+
+    <style>
+
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .left {
+            width: 300px;
+            border: 10px solid black;
+            padding: 50px;
+            margin: 20px;
+        }
+
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Your Transactions</h1>
+
+
+<div>
+    <div class = "left" th:each="transaction : ${transactions}">
+        <p th:text="'Event Name :  ' + ${transaction.name}"></p>
+        <p th:text="'Location :  ' + ${transaction.location}"></p>
+        <p th:text="'When :  ' + ${transaction.dateTime}"></p>
+        <p th:text="'Tickets :  ' + ${transaction.tickets}"></p>
+        <a th:href="@{/event(id=${transaction.id})}">View Details</a>
+        <a th:href="@{/ticket/transfer(id=${transaction.id})}">Send Tickets</a>
+
+    </div>
+</div>
+
+<div class = "right">
+    <form action = "user" method = "get">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+
+
+</body>
+</html>

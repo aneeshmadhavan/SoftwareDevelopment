@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Workspace!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        #expense {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        #expense td, #expense th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #expense tr:nth-child(even){background-color: #f2f2f2;}
+
+        #expense tr:hover {background-color: #ddd;}
+
+        #expense th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: cadetblue;
+            color: white;
+        }
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .right-top{
+            margin-top: 50px;
+            margin-right: 150px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .alert1 {
+            padding: 20px;
+            width: 300px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<h1 th:text="'Hello, ' + ${name} + '!'" />
+<div class ="top">
+    <p th:text="'Remaining Income : $' + ${income}"></p>
+    <form action = "income/update" method = "post">
+        <input type="number" name="income" required/>
+        <input type ="submit" value = "Update Income">
+    </form>
+</div>
+<br>
+<div class="alert1" th:if="${errorMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${errorMessage}"></p></strong>
+</div>
+<br>
+<table id="expense">
+    <tr>
+        <th>AMOUNT</th>
+        <th>DESCRIPTION</th>
+        <th>Category</th>
+
+
+    </tr>
+    <tr th:each="expense : ${expenses}">
+        <td th:text="'$' + ${expense.amount}"></td>
+        <td th:text="${expense.description}"></td>
+        <td th:text="${expense.category}"></td>
+
+    </tr>
+</table>
+<br>
+<form action = "expenses" method = "get">
+    <input type ="submit" value = "Enter Expense">
+</form>
+<br>
+<div class = "right">
+    <form action = "logout" method = "get">
+        <input type ="submit" value = "Signout">
+    </form>
+</div>
+<div class = "right-top">
+    <form action = "analyzer" method = "get">
+        <input type ="submit" value = "Analyze Expenses">
+    </form>
+</div>
+
+
+</body>
+
+</html>

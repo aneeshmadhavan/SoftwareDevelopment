@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Search Event!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .right-top{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<h2>Search</h2>
+
+
+<div>
+    <form method = "post">
+        <input type="string" name="term"/>
+        <div>
+            <input type ="submit" value = "Search Event">
+        </div>
+    </form>
+</div>
+
+<div class = "right-top">
+    <form action = "user" method = "back">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+
+
+</body>
+
+</html>

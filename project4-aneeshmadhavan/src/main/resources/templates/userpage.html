@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Account!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+
+
+        h1 {
+            color: black;
+            margin-left: 40px;
+        }
+
+        h2 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .left {
+            width: 300px;
+            border: 10px solid black;
+            padding: 50px;
+            margin: 20px;
+        }
+
+        .right-top{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+
+        .right{
+            margin-top: 50px;
+            margin-right: 150px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+
+        .right--top {
+
+            margin-top: 125px;
+            margin-right: 150px;
+            position:absolute;
+            top:0;
+            right:0;
+
+        }
+        .right---top {
+
+            margin-top: 125px;
+            margin-right: 40px;
+            position:absolute;
+            top:0;
+            right:0;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+
+<h1 th:text="'Hello, ' + ${name} + '!'" />
+<h2>Events</h2>
+
+
+
+<div>
+    <form action="event/search" method = "post">
+        <input type="string" name="term"/>
+        <div>
+            <input type ="submit" value = "Search Event">
+        </div>
+    </form>
+</div>
+
+<div>
+     <div class = "left" th:each="event : ${events}">
+         <p th:text="'Name :  ' + ${event.name}"></p>
+         <p th:text="'Location :  ' + ${event.location}"></p>
+         <p th:text="'When :  ' + ${event.dateTime}"></p>
+         <a th:href="@{/event(id=${event.id})}">View Details</a>
+        </div>
+</div>
+<div class = "right">
+    <form action = "userinfo/update" method = "get">
+        <input type ="submit" value = "Update info">
+    </form>
+</div>
+<div class = "right-top">
+    <form action = "logout" method = "get">
+        <input type ="submit" value = "Sign Out">
+    </form>
+</div>
+
+<div class = "right--top">
+    <form action = "user/transactions" method = "get">
+        <input type ="submit" value = "My Transactions">
+    </form>
+</div>
+
+<div class = "right---top">
+    <form action = "event/create" method = "get">
+        <input type ="submit" value = "Create Event">
+    </form>
+</div>
+
+</body>
+
+</html>

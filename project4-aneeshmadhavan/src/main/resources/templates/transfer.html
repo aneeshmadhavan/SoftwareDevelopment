@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Info!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .alert1 {
+            padding: 20px;
+            width: 300px;
+            background-color: #f44336;
+            color: white;
+        }
+        .alert2 {
+            padding: 20px;
+            width: 300px;
+            background-color: green;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .right{
+            margin-top: 50px;
+            margin-right: 150px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>Enter Details for Ticket Transfer</h1>
+<div class="alert1" th:if="${errorMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${errorMessage}"></p></strong>
+</div>
+<div class="alert2" th:if="${successMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${successMessage}"></p></strong>
+</div>
+<form  method = "post">
+    <div>
+        <p>Enter Email of Recipient</p>
+        <input type="email" name="email" required/>
+    </div>
+    <div>
+        <p>Number of Tickets</p>
+        <input type="number" name="tickets" required/>
+    </div>
+    <input type="hidden"  name="event_id" th:value="${eventid}">
+    <br>
+    <div>
+        <input type ="submit" value = "Submit">
+    </div>
+</form>
+<br>
+<div class="right">
+    <form action = "user" method = "get">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+</body>
+
+</html>

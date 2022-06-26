@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Add Income!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1 th:text="'Hello, ' + ${name} + '!'" />
+<form action = "data" method = "post">
+  <div>
+    <p>Add Income</p>
+    <input type="number" name="income" required/>
+  </div>
+  <br>
+  <div>
+    <input type ="submit" Return = "Submit">
+  </div>
+</form>
+</body>
+
+</html>

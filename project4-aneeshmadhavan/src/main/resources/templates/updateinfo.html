@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Info!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+
+
+    h1 {
+      color: maroon;
+      margin-left: 40px;
+    }
+    h2 {
+      color: maroon;
+      margin-right: 40px;
+    }
+
+    .left {
+      width: 300px;
+      border: 10px solid black;
+      padding: 50px;
+      margin-top: 50px;
+      margin-left: 150px;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+
+    .left-bottom {
+      padding: 50px;
+      margin-top: 50px;
+      margin-left: 150px;
+      position:absolute;
+      top:350px;
+      left:125px;
+
+    }
+
+    .right{
+      width: 300px;
+      border: 10px solid black;
+      padding: 50px;
+      margin-top: 50px;
+      margin-right: 150px;
+      position:absolute;
+      top:0;
+      right:0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class = right>
+<h1 th:text="'Update your info!'" />
+
+<form method = "post">
+  <div>
+    <p>Enter Name</p>
+    <input type="string" name="name"/>
+  </div>
+  <div>
+    <p>Enter Age</p>
+    <input type="number" name="age" min="0" max="120"/>
+  </div>
+  <div>
+    <p>Enter Phone Number</p>
+    <input type="string" name="phone"/>
+  </div>
+  <br>
+  <div>
+    <input type ="submit" value = "Update">
+  </div>
+</form>
+</div>
+<div class = "left">
+  <h2>Account Info!</h2>
+  <p th:text="'Name :  ' + ${name}"></p>
+  <p th:text="'Email :  ' + ${email}"></p>
+  <p th:text="'Age :  ' + ${age}"></p>
+  <p th:text="'Phone :  ' + ${phone}"></p>
+</div>
+<br>
+
+<div class = "left-bottom">
+  <form action = "user" method = "get">
+    <input type ="submit" value = "Back">
+  </form>
+</div>
+
+</body>
+
+</html>

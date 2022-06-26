@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Log Expense!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 th:text="'Log your Expense !'" />
+<form action = "expenses" method = "post">
+    <div>
+        <p>Enter Amount</p>
+        <input type="number" name="amount" required/>
+        <p>Enter Description</p>
+        <input type="text" name="description" required/>
+
+    </div>
+    <br>
+    <div>
+        <label for="category">Choose Category:</label>
+
+        <select name="category" id="category">
+            <option value="Groceries">Groceries</option>
+            <option value="Dining">Dining</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Travel">Travel</option>
+            <option value="Rent">Rent</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <input type ="submit" value = "Submit">
+    </div>
+</form>
+<div class = "right">
+    <form action = "data" method = "get">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+</body>
+
+</html>

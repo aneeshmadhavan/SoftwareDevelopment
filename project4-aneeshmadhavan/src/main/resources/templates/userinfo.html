@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Info!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1 th:text="'Hello, ' + ${name} + '!'" />
+<form action = "userinfo" method = "post">
+    <div>
+        <p>Enter Age</p>
+        <input type="number" name="age" min="0" max="120" required/>
+    </div>
+    <div>
+        <p>Enter Phone Number</p>
+        <input type="string" name="phone" required/>
+    </div>
+    <br>
+    <div>
+        <input type ="submit" value = "Submit">
+    </div>
+</form>
+</body>
+
+</html>

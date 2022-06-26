@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Event Details!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+        .left {
+            width: 300px;
+            border: 10px solid black;
+            padding: 50px;
+            margin: 20px;
+        }
+
+        .right{
+            margin-top: 50px;
+            margin-right: 50px;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .alert1 {
+            padding: 20px;
+            width: 300px;
+            background-color: #f44336;
+            color: white;
+        }
+        .alert2 {
+            padding: 20px;
+            width: 300px;
+            background-color: green;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<h1>Event Information</h1>
+
+
+<div>
+    <div class = "left" th:each="event : ${events}">
+        <p th:text="'Name :  ' + ${event.name}"></p>
+        <p th:text="'Location :  ' + ${event.location}"></p>
+        <p th:text="'When :  ' + ${event.dateTime}"></p>
+        <p th:text="'Ticket Price :  ' + ${event.price} + '$'"></p>
+        <p th:text="'Description :  ' + ${event.description}"></p>
+        <p th:text="'Category :  ' + ${event.category}"></p>
+        <p th:text="'Remaining tickets :  ' + ${event.capacity}"></p>
+    </div>
+</div>
+<br>
+<div class="alert1" th:if="${errorMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${errorMessage}"></p></strong>
+</div>
+<div class="alert2" th:if="${successMessage != null}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong><p th:text="${successMessage}"></p></strong>
+</div>
+<br>
+<div>
+    <form action = "ticket/purchase" method = "post">
+        <div>
+            <p>Enter No. Of tickets to buy</p>
+            <input type="number" name="tickets" min="1" max="10" required/>
+            <input type="hidden"  name="event_id" th:value="${eventid}">
+        </div>
+        <br>
+        <div>
+            <input type ="submit" value = "Purchase">
+        </div>
+    </form>
+</div>
+<div class = "right">
+    <form action = "user" method = "get">
+        <input type ="submit" value = "Back">
+    </form>
+</div>
+
+</body>
+
+</html>
