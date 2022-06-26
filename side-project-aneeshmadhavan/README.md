@@ -14,29 +14,29 @@ when a user goes below $50 serving as a reminder to either update their income o
 
 1) The home page of the app.
 
-![Screenshot](/images/home.png)
+![Screenshot](images/home.png)
 2) Clicking the button on the top right, you can Sign in with Slack.
 
-![Screenshot](/images/slack.png)
+![Screenshot](images/slack.png)
 3) You will be asked to enter an income the first time your account is created.
 
-![Screenshot](/images/income.png)
+![Screenshot](images/income.png)
 4) You will then be redirected to your Workspace after signing in.
 
-![Screenshot](/images/workspace.png)
+![Screenshot](images/workspace.png)
 5) You can log your expenses by adding an amount, a description and a category from the available ones for each entry.
 
-![Screenshot](/images/expense.png)
+![Screenshot](images/expense.png)
 6) Each entry will be added to the database and will be visible in your workspace.
 
-![Screenshot](/images/updatedworkspace.png)
+![Screenshot](images/updatedworkspace.png)
 7) Once your balance goes below $50, you'll be issued with a warning.
 
-![Screenshot](/images/alert.png)
+![Screenshot](images/alert.png)
 8) You can click on the 'Analyse Expenses' on the top right of your workspace to see a 3D pie chart with distribution
 of the expenditure by category. Could be interesting to see how your chart compares to your peers!
 
-![Screenshot](/images/piechart.png)
+![Screenshot](images/piechart.png)
 10) Finally, when you're done using the app, click on the logout button to exit the app!.
 
 ## Architecture and Implementation Details
